@@ -4,7 +4,7 @@ metadata:
   name: example-yugaware
 spec:
   # Default values copied from <project_dir>/helm-charts/yugaware/values.yaml
-  
+
   domainName: cluster.local
   helm:
     package: /opt/yugabyte/helm/yugabyte-latest.tgz
@@ -13,11 +13,28 @@ spec:
   image:
     pullPolicy: IfNotPresent
     pullSecret: yugabyte-k8s-pull-secret
-    repository: quay.io/yugabyte/yugaware
-    tag: 2.2.0.0-b85
-  subresources:
-    status:
-      lastUpdated: 2020-07-21-1541
+    repository: quay.io/yugabyte/yugaware-itest
+    tag: 2.5.1.0-b168-ubi
+    thirdparty-deps:
+      registry: quay.io
+      tag: latest
+      name: yugabyte/thirdparty-deps
+    postgres:
+      registry: ""
+      tag: 11.5
+      name: postgres
+    prometheus:
+      registry: ""
+      tag: v2.2.1
+      name: prom/prometheus
+    nginx:
+      registry: ""
+      tag: 1.17.4-amd64
+      name: nginxinc/nginx-unprivileged
+    dnsmasq:
+      registry: ""
+      tag: release-1.0.7
+      name: janeczku/go-dnsmasq
   securityContext:
     enabled: false
     fsGroup: 1001
@@ -41,4 +58,7 @@ spec:
     serviceAccount: yugaware
     storage: 100Gi
     storageClass: standard
-  
+  rbac:
+    create: true
+  ocpCompatibility:
+    enabled: true

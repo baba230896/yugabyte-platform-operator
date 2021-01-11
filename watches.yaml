@@ -3,3 +3,4 @@
   group: charts.helm.k8s.io
   kind: Yugaware
   chart: helm-charts/yugaware
+# +kubebuilder:scaffold:watch

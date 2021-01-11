@@ -1,0 +1,24 @@
+# permissions for end users to edit yugawares.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: yugaware-editor-role
+rules:
+- apiGroups:
+  - yugawares.charts.helm.k8s.io
+  resources:
+  - yugawares
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - yugawares.charts.helm.k8s.io
+  resources:
+  - yugawares/status
+  verbs:
+  - get
