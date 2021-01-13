@@ -23,7 +23,7 @@ spec:
         control-plane: controller-manager
     spec:
       containers:
-      - image: controller:latest
+      - image: registry.connect.redhat.com/yugabytedb/yugabyte-platform-operator:v1.3-scratch-v1
         #image: controller:latest
         #registry.connect.redhat.com/yugabytedb/yugabyte-platform-operator:1.0.0
         args:

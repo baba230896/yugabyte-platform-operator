@@ -11,9 +11,9 @@ spec:
       containers:
       - name: kube-rbac-proxy
         # RH Certification
-        #image: registry.redhat.io/openshift4/ose-kube-rbac-proxy:latest
+        image: registry.redhat.io/openshift4/ose-kube-rbac-proxy:latest
         # Development
-        image: gcr.io/kubebuilder/kube-rbac-proxy:v0.5.0
+        #image: gcr.io/kubebuilder/kube-rbac-proxy:v0.5.0
         args:
         - "--secure-listen-address=0.0.0.0:8443"
         - "--upstream=http://127.0.0.1:8080/"
